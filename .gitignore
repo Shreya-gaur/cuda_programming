@@ -1,2 +1,5 @@
 
 ./output1
+./reduceThreadCount.sh
+./sampleSize.sh
+./saxpyrunvsize.sh
