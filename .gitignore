@@ -3,3 +3,4 @@
 ./reduceThreadCount.sh
 ./sampleSize.sh
 ./saxpyrunvsize.sh
+./generateThreadCount.sh

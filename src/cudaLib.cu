@@ -23,8 +23,6 @@ void saxpy_gpu (float* x, float* y, float scale, int size) {
 int runGpuSaxpy(int vectorSize) {
 
 	std::cout << "Hello GPU Saxpy!\n";
-
-	// vectorSize = 536870912;
 	 
 	printf("\nvectorSize:%i \n", (int)vectorSize);
 
@@ -112,7 +110,6 @@ void generatePoints (uint64_t * pSums, uint64_t pSumSize, uint64_t sampleSize) {
 		//	Main CPU Monte-Carlo Code
 		int hitCount = 0;
 		for (uint64_t idx = 0; idx < sampleSize; ++idx) {
-			// point tmp;
 
 			float x = curand_uniform (&states);
 			float y = curand_uniform (&states);
@@ -130,8 +127,6 @@ __global__
 void reduceCounts (uint64_t * pSums, uint64_t * totals, uint64_t pSumSize, uint64_t reduceSize) {
 	//	Insert code here
 
-	// int index = blockIdx.x * blockDim.x + threadIdx.x;
-	// const int stride = blockDim.x * gridDim.x;
 	int index = threadIdx.x;
 	int stride = blockDim.x;
 
@@ -147,16 +142,6 @@ void reduceCounts (uint64_t * pSums, uint64_t * totals, uint64_t pSumSize, uint6
 
 int runGpuMCPi (uint64_t generateThreadCount, uint64_t sampleSize, 
 	uint64_t reduceThreadCount, uint64_t reduceSize) {
-
-	generateThreadCount = 1<<29;
-	// sampleSize = 536870912;
-	// reduceThreadCount = 128;
-	// reduceSize = 2048;
-	
-	printf("generateThreadCount:%i \n", (int)generateThreadCount);
-	printf("sampleSize:%i \n", (int)sampleSize);
-	printf("reduceSize:%i \n", (int)reduceSize);
-	printf("reduceThreadCount:%i \n", (int)reduceThreadCount);
 
 	//  Check CUDA device presence
 	int numDev;
@@ -187,7 +172,6 @@ double estimatePi(uint64_t generateThreadCount, uint64_t sampleSize,
 	size_t memsize = generateThreadCount * sizeof(uint64_t);
 
 	uint64_t totalHitCount = 0;
-	// uint64_t totalHitCount_test = 0;
 	uint64_t* dev_pSums;
 	uint64_t* dev_totals;
 	uint64_t* partial_totals;
@@ -211,15 +195,6 @@ double estimatePi(uint64_t generateThreadCount, uint64_t sampleSize,
 		dim3 DimGrid(blocksPerGrid,1,1);
 		generatePoints<<<DimGrid, DimBlock>>>(dev_pSums, generateThreadCount, sampleSize);
 	}
-
-	// cudaMemcpy(pSums, dev_pSums, memsize, cudaMemcpyDeviceToHost);
-
-	// threadsPerBlock = 32;
-	
-	// reduceThreadCount = ceil(generateThreadCount/reduceSize);
-	// blocksPerGrid = ceil(reduceThreadCount/threadsPerBlock);
-
-	// reduceCounts<<<blocksPerGrid, threadsPerBlock>>>(dev_pSums, dev_totals, generateThreadCount, reduceSize);
 
 	reduceCounts<<<1, reduceThreadCount>>>(dev_pSums, dev_totals, generateThreadCount, reduceSize);
 	
