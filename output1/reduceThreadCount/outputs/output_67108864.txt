@@ -1,0 +1,20 @@
+ECE 695 - Lab 1 
+Select application: 
+  1 - CPU SAXPY 
+  2 - GPU SAXPY 
+  3 - CPU Monte-Carlo Pi 
+  4 - GPU Monte-Carlo Pi 
+
+Choice selected - 4
+
+Running Monte-Carlo Pi Estimation on GPU! 
+
+generateThreadCount:1024 
+sampleSize:1000000 
+reduceThreadCount:67108864 
+reduceSize:32 
+ numDev = 1
+Estimated Pi = 0
+It took 0.399615 seconds.
+
+ ... Done!

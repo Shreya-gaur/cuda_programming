@@ -1,0 +1,24 @@
+ECE 695 - Lab 1 
+Select application: 
+  1 - CPU SAXPY 
+  2 - GPU SAXPY 
+  3 - CPU Monte-Carlo Pi 
+  4 - GPU Monte-Carlo Pi 
+
+Choice selected - 2
+
+Running SAXPY GPU! 
+
+Hello GPU Saxpy!
+
+vectorSize:131072 
+
+ Adding vectors : 
+ scale = 2.000000
+ a = { 83.0000, 86.0000, 77.0000, 15.0000, 93.0000,  ... }
+ b = { 19.0000, 34.0000, 30.0000, 5.0000, 24.0000,  ... }
+ c = { 185.0000, 206.0000, 184.0000, 35.0000, 210.0000,  ... }
+Found 0 / 131072 errors 
+
+
+ ... Done!

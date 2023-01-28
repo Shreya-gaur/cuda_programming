@@ -1,0 +1,7 @@
+/home/gaur13/cuda-programming-assignment-1-Shreya-gaur/CMakeFiles/rebuild_cache.dir
+/home/gaur13/cuda-programming-assignment-1-Shreya-gaur/CMakeFiles/edit_cache.dir
+/home/gaur13/cuda-programming-assignment-1-Shreya-gaur/CMakeFiles/lab1.dir
+/home/gaur13/cuda-programming-assignment-1-Shreya-gaur/src/CMakeFiles/rebuild_cache.dir
+/home/gaur13/cuda-programming-assignment-1-Shreya-gaur/src/CMakeFiles/cpuLib.dir
+/home/gaur13/cuda-programming-assignment-1-Shreya-gaur/src/CMakeFiles/edit_cache.dir
+/home/gaur13/cuda-programming-assignment-1-Shreya-gaur/src/CMakeFiles/cudaLib.dir
