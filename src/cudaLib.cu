@@ -175,12 +175,10 @@ double estimatePi(uint64_t generateThreadCount, uint64_t sampleSize,
 	uint64_t* dev_pSums;
 	uint64_t* dev_totals;
 	uint64_t* partial_totals;
-	// uint64_t* pSums;
 
 	double approxPi = 0;
 
 	partial_totals = (uint64_t*) malloc(reduceThreadCount * sizeof(uint64_t));
-	// pSums = (uint64_t*) malloc(memsize);
 
 	cudaMalloc(&dev_pSums, memsize);
 	cudaMalloc(&dev_totals, reduceThreadCount*sizeof(uint64_t));
@@ -202,21 +200,6 @@ double estimatePi(uint64_t generateThreadCount, uint64_t sampleSize,
 	
 	for(int i=0; i<reduceThreadCount; i++)
 		totalHitCount += partial_totals[i];
-
-	// for(int i=0; i<generateThreadCount; i++)
-	// 	totalHitCount_test += pSums[i];
- 
-	// #ifndef DEBUG_PRINT_DISABLE 
-	// if (totalHitCount==totalHitCount_test){
-	// 	printf("\nCorrect totalHitCount:%i \n", (int)totalHitCount);
-	// }
-	// else{
-	// 	printf("\nCorrect totalHitCount_test:%i \n", (int)totalHitCount_test);
-	// 	printf("\nIncorrect totalHitCount:%i \n", (int)totalHitCount);
-
-	// 	approxPi = ((double) totalHitCount_test / sampleSize) / generateThreadCount;
-	// }
-	// #endif
 
 	approxPi = ((double) totalHitCount / sampleSize) / generateThreadCount;
 	

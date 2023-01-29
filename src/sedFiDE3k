@@ -1,8 +1,0 @@
-
-#include "cudaLib.cuh"
-
-typedef struct{
-	float x;
-	float y;
-} point;
-
