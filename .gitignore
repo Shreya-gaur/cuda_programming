@@ -4,3 +4,5 @@
 ./sampleSize.sh
 ./saxpyrunvsize.sh
 ./generateThreadCount.sh
+./include
+./CMAKEFile
