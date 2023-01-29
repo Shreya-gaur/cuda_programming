@@ -5,4 +5,4 @@
 ./saxpyrunvsize.sh
 ./generateThreadCount.sh
 ./include
-./CMAKEFile
+./CMakeFile
