@@ -1,0 +1,64 @@
+Performing C++ SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/gaur13/cuda_programming/assignment-1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a9ac5/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a9ac5.dir/build.make CMakeFiles/cmTC_a9ac5.dir/build
+gmake[1]: Entering directory `/home/gaur13/cuda_programming/assignment-1/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a9ac5.dir/src.cxx.o
+/apps/spack/scholar/fall20/apps/gcc/9.3.0-gcc-4.8.5-3acpdic/bin/c++ -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_a9ac5.dir/src.cxx.o -c /home/gaur13/cuda_programming/assignment-1/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_a9ac5
+/apps/spack/scholar/fall20/apps/cmake/3.20.6-gcc-4.8.5-ezq6lqr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a9ac5.dir/link.txt --verbose=1
+/apps/spack/scholar/fall20/apps/gcc/9.3.0-gcc-4.8.5-3acpdic/bin/c++ CMakeFiles/cmTC_a9ac5.dir/src.cxx.o -o cmTC_a9ac5 
+CMakeFiles/cmTC_a9ac5.dir/src.cxx.o: In function `main':
+src.cxx:(.text+0x2d): undefined reference to `pthread_create'
+src.cxx:(.text+0x39): undefined reference to `pthread_detach'
+src.cxx:(.text+0x45): undefined reference to `pthread_cancel'
+src.cxx:(.text+0x56): undefined reference to `pthread_join'
+src.cxx:(.text+0x6a): undefined reference to `pthread_atfork'
+/usr/bin/ld: link errors found, deleting executable `cmTC_a9ac5'
+/usr/bin/sha1sum: cmTC_a9ac5: No such file or directory
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_a9ac5] Error 1
+gmake[1]: Leaving directory `/home/gaur13/cuda_programming/assignment-1/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_a9ac5/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/gaur13/cuda_programming/assignment-1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a261a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a261a.dir/build.make CMakeFiles/cmTC_a261a.dir/build
+gmake[1]: Entering directory `/home/gaur13/cuda_programming/assignment-1/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a261a.dir/CheckFunctionExists.cxx.o
+/apps/spack/scholar/fall20/apps/gcc/9.3.0-gcc-4.8.5-3acpdic/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_a261a.dir/CheckFunctionExists.cxx.o -c /home/gaur13/cuda_programming/assignment-1/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_a261a
+/apps/spack/scholar/fall20/apps/cmake/3.20.6-gcc-4.8.5-ezq6lqr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a261a.dir/link.txt --verbose=1
+/apps/spack/scholar/fall20/apps/gcc/9.3.0-gcc-4.8.5-3acpdic/bin/c++  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_a261a.dir/CheckFunctionExists.cxx.o -o cmTC_a261a  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+/usr/bin/sha1sum: cmTC_a261a: No such file or directory
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_a261a] Error 1
+gmake[1]: Leaving directory `/home/gaur13/cuda_programming/assignment-1/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_a261a/fast] Error 2
+
+
+

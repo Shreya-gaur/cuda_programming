@@ -1,0 +1,7 @@
+typedef char __nv_bool;
+# 209 "/apps/spack/scholar/fall20/apps/gcc/9.3.0-gcc-4.8.5-3acpdic/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include/stddef.h" 3
+typedef unsigned long size_t;
+#include "crt/device_runtime.h"
+# 254 "/apps/spack/scholar/fall20/apps/gcc/9.3.0-gcc-4.8.5-3acpdic/include/c++/9.3.0/x86_64-pc-linux-gnu/bits/c++config.h" 3
+typedef unsigned long _ZSt6size_t;
+#include "common_functions.h"
